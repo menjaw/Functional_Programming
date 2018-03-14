@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package TcpServer;
 
 import java.net.Socket;
-import server.Server_TCP;
+import TcpServer.Server_TCP;
 
 /**
  *
