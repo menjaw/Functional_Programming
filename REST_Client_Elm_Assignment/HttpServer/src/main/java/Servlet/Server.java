@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Menja
  */
 @WebServlet(name = "Server", urlPatterns = {"/Server"})
-public class Server extends HttpServlet {
+public class Server extends HttpServlet implements Comparable<Counter> {
 
     private String message = "Hello World! This is Menja and the Servlet!";
 
@@ -35,14 +35,13 @@ public class Server extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //Variables
-        
-        
+
         //Print to page
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO: output your page here.*/
             out.println(message);
-            
+
         }
     }
 
@@ -68,5 +67,11 @@ public class Server extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    //compare two Counter objects based on their count
+    @Override
+    public int compareTo(Counter o) {
+        return 0;
+    }
 
 }
