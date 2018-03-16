@@ -11,20 +11,17 @@ package Servlet;
  */
 public class Counter {
 
-    private final int maxCount;    // maximum value
-    private int count;             // current value
+    
+    private int count;// current value
 
     // create a new counter with the given parameters
-    public Counter(int max) {
-        maxCount = max;
+    public Counter() {
         count = 0;
     }
 
     // increment the counter by 1
-    public void increment() {
-        if (count < maxCount) {
-            count++;
-        }
+    public void incrementCount() {
+        count++;
     }
 
     // return the current count
@@ -33,6 +30,7 @@ public class Counter {
     }
 
     // return a string representation of this counter
+    @Override
     public String toString() {
         return "Count: " + count;
     }

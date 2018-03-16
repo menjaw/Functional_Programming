@@ -18,11 +18,11 @@ import javax.servlet.http.HttpServletResponse;
  * @author Menja
  */
 @WebServlet(name = "Server", urlPatterns = {"/Server"})
-public class Server extends HttpServlet implements Comparable<Counter> {
+public class Server extends HttpServlet {
 
-    private String message = "Hello World! This is Menja and the Servlet!";
+    private String message = "Hello World! This is from Menja and the Servlet!";
+    Counter counter = new Counter();
 
-// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -34,19 +34,17 @@ public class Server extends HttpServlet implements Comparable<Counter> {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //Variables
-
         //Print to page
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO: output your page here.*/
             out.println(message);
-
+            counter.incrementCount();
+            counter.returnCount();
         }
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP <code>PUT</code> method.
      *
      * @param request servlet request
      * @param response servlet response
@@ -67,11 +65,5 @@ public class Server extends HttpServlet implements Comparable<Counter> {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    //compare two Counter objects based on their count
-    @Override
-    public int compareTo(Counter o) {
-        return 0;
-    }
 
 }
